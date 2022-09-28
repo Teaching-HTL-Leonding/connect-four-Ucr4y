@@ -17,10 +17,10 @@ export class Level2Component {
 
   public onRestart(): void{
     this.boardContent=[
-      [0,0,0],
-      [0,0,0],
-      [0,0,0],
-      [0,0,0],
+      [0,0,0,0],
+      [0,0,0,0],
+      [0,0,0,0],
+      [0,0,0,0],
     ]
     this.currentPlayerIndex = 1;
     this.currentWinnerIndex = 0;
