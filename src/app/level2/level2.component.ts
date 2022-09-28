@@ -29,9 +29,10 @@ export class Level2Component {
     if(this.currentWinnerIndex === 0){
       if(this.getFreePlace(colIx) >= 0){
         this.boardContent[colIx][this.getFreePlace(colIx)] = this.currentPlayerIndex
+        this.currentPlayerIndex = this.currentPlayerIndex === 1 ? 2 : 1;
+        this.currentWinnerIndex = this.getWinnerIndex();
       }
-      this.currentPlayerIndex = this.currentPlayerIndex === 1 ? 2 : 1;
-      this.currentWinnerIndex = this.getWinnerIndex();
+
     }
   }
   public getPlayerIndex(col: number,row: number):string{
