@@ -6,7 +6,23 @@ import { BoardService } from './board.service';
   styleUrls: ['./level4.component.css'],
 })
 export class Level4Component {
-  constructor(private board: BoardService) {}
+  public playerNames: string[];
 
-  // TODO: Enhance solution from level 3 by extracting the logic in a separate Angular service.
+  constructor(public board: BoardService) {
+    this.playerNames = ['', '1', '2'];
+    board.onRestart();
+  }
+
+  public getStyle(col: number, row: number): string {
+    if (this.board.boardContent[col][row] !== 0) {
+      return `occupied-${this.getPlayerName(col, row)}`;
+    }
+    return '';
+  }
+  public getPlayerName(col: number, row: number): string {
+    return this.playerNames[this.board.boardContent[col][row]];
+  }
+  public getWinnerName(): string {
+    return this.playerNames[this.board.winnerIndex];
+  }
 }
